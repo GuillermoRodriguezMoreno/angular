@@ -1,0 +1,29 @@
+<h1 class="text-center">Productos</h1>
+
+<div *ngIf="productos.length > 0; else listaVacia">
+    <ul class="list-group">
+        <li *ngFor="let p of productos, let i = index" class="list-group-item d-inline-flex justify-content-between align-items-center">
+            <div class="flex-fill">{{p.nombre}}</div>
+            <div class="flex-fill">{{p.precio}}</div>
+            <div class="flex-fill">{{p.categoria}}</div>
+            <button (click)="eliminarProducto(i)" type="button" class="btn btn-danger">Eliminar</button>
+        </li>
+    </ul>
+</div>
+<ng-template #listaVacia>
+    
+    <h1>no hay productos</h1>
+    
+</ng-template>
+
+<div *ngIf="eliminados.length > 0; else noHayNada">
+
+    <h1>has borrado: {{eliminados}}</h1>
+    
+</div>
+
+<ng-template #noHayNada>
+    
+    <h1>no has eliminado</h1>
+    
+</ng-template>
