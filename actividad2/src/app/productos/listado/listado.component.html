@@ -3,9 +3,9 @@
 <div *ngIf="productos.length > 0; else listaVacia">
     <ul class="list-group">
         <li *ngFor="let p of productos, let i = index" class="list-group-item d-inline-flex justify-content-between align-items-center">
-            <div class="flex-fill">{{p.nombre}}</div>
-            <div class="flex-fill">{{p.precio}}</div>
-            <div class="flex-fill">{{p.categoria}}</div>
+            <div>{{p.nombre}}</div>
+            <div>{{p.precio}}</div>
+            <div>{{p.categoria}}</div>
             <button (click)="eliminarProducto(i)" type="button" class="btn btn-danger">Eliminar</button>
         </li>
     </ul>
