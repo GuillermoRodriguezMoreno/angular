@@ -1,1 +1,10 @@
-<p>lenguajes works!</p>
+<div class="row">
+<div *ngFor="let lenguaje of getLenguajes()" class="card col-lg-2 col-md-4 col-sm-6">
+    <img [src]="rutaImagen(lenguaje.imagen)" class="card-img-top" style="width: 40%;" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{ lenguaje.nombre }}</h5>
+      <p class="card-text">{{ lenguaje.descripcion }}</p>
+      <a class="btn btn-primary">ver mas...</a>
+    </div>
+  </div>
+</div>
