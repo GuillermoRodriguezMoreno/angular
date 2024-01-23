@@ -18,7 +18,7 @@ export class LenguajesComponent {
     this.lenguajes = _lenguajesService.getLenguajes();
   };
 
-  rutaImagen(imagen:String):String{
+  rutaImagen(imagen:string):string{
 
     return this._lenguajesService.rutaImagen(imagen);
   }
