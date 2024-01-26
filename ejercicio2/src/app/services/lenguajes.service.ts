@@ -18,8 +18,20 @@ export class LenguajesService {
     rutaImagen(imagen:string):string{
         return "assets/img/" + imagen;
     }
+
+    buscarLenguajes(termino:string):Lenguaje[]{
+
+        let filtrado:Lenguaje[] = [];
+
+        for (const item of this._lenguajes) {
+            if(item.nombre.includes(termino)) 
+                filtrado.push(item);
+        }
+        return filtrado;
+    }
 }
 
+// Esto es para crear un tipo asi evitamos poner any
 export interface Lenguaje{
 
     nombre:string,

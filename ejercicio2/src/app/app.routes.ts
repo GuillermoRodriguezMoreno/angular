@@ -9,6 +9,6 @@ export const routes: Routes = [
     {path: "home", component: HomeComponent},
     {path: "about", component: AboutComponent},
     {path: "lenguajes", component: LenguajesComponent},
-    {path: "buscador", component: BuscadorComponent},
+    {path: "buscador/:termino", component: BuscadorComponent},
     {path: "**", pathMatch: "full", redirectTo: "home"}
 ];

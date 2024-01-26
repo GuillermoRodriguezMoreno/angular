@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { Lenguaje, LenguajesService } from '../../services/lenguajes.service';
 import { ActivatedRoute } from '@angular/router';
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-buscador',
   standalone: true,
-  imports: [],
+  imports: [NgFor],
   templateUrl: './buscador.component.html',
   styleUrl: './buscador.component.css'
 })
@@ -15,5 +16,13 @@ export class BuscadorComponent {
   constructor(private lenguajesServicio:LenguajesService,
               private activatedRoutes:ActivatedRoute){
 
+    activatedRoutes.params.subscribe(params => {
+
+      this.lenguajes=lenguajesServicio.buscarLenguajes(params["termino"]);
+    })
+  }
+
+  rutaImagen(nombre:string):string{
+    return this.lenguajesServicio.rutaImagen(nombre);
   }
 }
