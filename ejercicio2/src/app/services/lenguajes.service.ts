@@ -24,7 +24,7 @@ export class LenguajesService {
         let filtrado:Lenguaje[] = [];
 
         for (const item of this._lenguajes) {
-            if(item.nombre.includes(termino)) 
+            if(item.nombre.toLowerCase().includes(termino.toLowerCase())) 
                 filtrado.push(item);
         }
         return filtrado;
