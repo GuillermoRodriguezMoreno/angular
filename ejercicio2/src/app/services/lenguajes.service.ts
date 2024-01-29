@@ -29,6 +29,11 @@ export class LenguajesService {
         }
         return filtrado;
     }
+
+    buscarLenguaje(id:number):Lenguaje{
+
+        return this._lenguajes[id];
+    }
 }
 
 // Esto es para crear un tipo asi evitamos poner any

@@ -17,7 +17,7 @@
           </li>
         </ul>
         <form class="d-flex" role="search">
-          <input #termino (keydown.enter)="buscar(termino.value)" class="form-control me-2" type="search" placeholder="Texto a buscar" aria-label="Search">
+          <input #termino (keyup)="buscar(termino.value)" class="form-control me-2" type="search" placeholder="Texto a buscar" aria-label="Search">
           <button class="btn btn-primary" type="button" (click)="buscar(termino.value)">Buscar</button>
         </form>
       </div>
