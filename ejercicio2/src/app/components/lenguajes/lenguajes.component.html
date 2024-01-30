@@ -1,5 +1,9 @@
 <div class="row">
   <div *ngFor="let lenguaje of lenguajes, let i = index" class="card col-lg-2 col-md-4 col-sm-6">
-    <app-lenguaje-tarjeta [lenguaje]="lenguaje" [rutaImagen]="rutaImagen(lenguaje.imagen)" [indice]="i"></app-lenguaje-tarjeta>
+    <app-lenguaje-tarjeta (botonTarjetaPulsado)="verTarjeta($event)"
+                          [lenguaje]="lenguaje" 
+                          [rutaImagen]="rutaImagen(lenguaje.imagen)" 
+                          [indice]="i">
+    </app-lenguaje-tarjeta>
   </div>
 </div>

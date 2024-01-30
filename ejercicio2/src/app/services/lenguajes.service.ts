@@ -21,11 +21,13 @@ export class LenguajesService {
 
     buscarLenguajes(termino:string):Lenguaje[]{
 
-        let filtrado:Lenguaje[] = [];
+        let filtrado:any[] = [];
+        let i = 0
 
         for (const item of this._lenguajes) {
             if(item.nombre.toLowerCase().includes(termino.toLowerCase())) 
-                filtrado.push(item);
+                filtrado.push({id:i, item: item});
+            i++
         }
         return filtrado;
     }
