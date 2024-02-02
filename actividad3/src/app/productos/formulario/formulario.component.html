@@ -2,12 +2,12 @@
     <div class="col text-center">FORMULARIO</div>
 </div>
 <div class="form-group">
-  <input type="text" class="form-control" name="" id="" placeholder="Nombre">
+  <input #prod_nombre type="text" class="form-control" name="" id="" placeholder="Nombre">
 </div>
 <div class="form-group">
-    <input type="text" class="form-control" name="" id="" placeholder="0">
+    <input #prod_id type="text" class="form-control" name="" id="" placeholder="0">
 </div>
-<button type="submit" class="btn btn-primary">Enviar</button>
+<button (click)="añadirProducto(#prod_id.value, #prod_nombre.value)" type="submit" class="btn btn-primary">Enviar</button>
 <div class="warning bg-warning">
   El nombre del producto es obligatorio.
 </div>
