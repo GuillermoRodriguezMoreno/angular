@@ -14,7 +14,7 @@
         CATEGORÍA
     </div>
 </div>
-<div class="row fila_productos" *ngFor="let item of productos">
+<div class="row" *ngFor="let item of productos">
     <div class="col-3">
         {{ item.nombre }}
     </div>
@@ -24,10 +24,19 @@
     <div class="col-3">
         {{ item.categoria }}
     </div>
+</div>
+<div class="row">
     <div class="col-3">
-        <button (click)="eliminar(item.nombre)" type="button" name="eliminar[]" id="eliminar[]" class="btn btn-primary" btn-lg btn-block>Eliminar</button>
+        <input type="text" #nombreProducto>
+    </div>
+    <div class="col-3">
+        <button (click)="eliminar(nombreProducto.value)" type="button" name="eliminar[]" id="eliminar[]" class="btn btn-primary" btn-lg btn-block>Eliminar</button>
     </div>
 </div>
 <div class="warning bg-warning" *ngIf="eliminado!=null">
         Elemento eliminado: {{eliminado.nombre}}, {{eliminado.precio}}, {{eliminado.categoria}}
+</div>
+
+<div class="warning bg-warning" *ngIf="encontrado==false">
+    Producto no encontrado
 </div>

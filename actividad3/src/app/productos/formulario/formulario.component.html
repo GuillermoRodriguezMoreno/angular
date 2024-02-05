@@ -1,13 +1,10 @@
-<div class="row bg-primary">
-    <div class="col text-center">FORMULARIO</div>
-</div>
-<div class="form-group">
-  <input #prod_nombre type="text" class="form-control" name="" id="" placeholder="Nombre">
-</div>
-<div class="form-group">
-    <input #prod_id type="text" class="form-control" name="" id="" placeholder="0">
-</div>
-<button (click)="añadirProducto(#prod_id.value, #prod_nombre.value)" type="submit" class="btn btn-primary">Enviar</button>
-<div class="warning bg-warning">
-  El nombre del producto es obligatorio.
-</div>
+<form (ngSubmit)="onSubmit()" #form="">
+  <div class="row">
+    <div class="col-2">
+      <input type="text" #nombreProducto placeholder="Nombre">
+      <input type="text" #precioProducto placeholder="Precio">
+      <input type="text" #categoriaProducto placeholder="Categoria">
+      <button (click)="onSubmit()" type="submit" id="" class="btn btn-primary">Enviar</button>
+    </div>
+  </div>
+</form>

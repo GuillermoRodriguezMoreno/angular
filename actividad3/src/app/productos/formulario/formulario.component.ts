@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ProductoService } from '../../services/productoService';
+import { ProductoService } from '../../services/productos.service';
 import { Producto } from '../productos.interface';
 
 @Component({
@@ -11,17 +11,9 @@ import { Producto } from '../productos.interface';
 })
 export class FormularioComponent {
 
-  productosAñadir:Producto[] = this.productoService.getProductos(); 
+  productoAñadir:Producto|null = null; 
 
   constructor(private productoService:ProductoService){};
 
-  añadirProducto(prod_id, prod_nombre){
-    
-    prod:Producto = {
-      id:prod_id,
-      nombre:prod_nombre
-    }
-
-    this.productosAñadir.push(prod);
-  }
+  onSubmit(){};
 }
