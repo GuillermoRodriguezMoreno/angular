@@ -36,7 +36,7 @@
             <div *ngIf="nombreProducto.errors?.['required']">Nombre requerido</div>
             <button [disabled]="!form.valid"
             (click)="eliminar(nombreProducto.value)" type="submit" 
-            name="buscar[]" id="buscar[]" class="btn btn-primary" btn-lg btn-block>Buscar</button>
+            name="buscar[]" id="buscar[]" class="btn btn-danger" btn-lg btn-block>Eliminar</button>
     </form>
 </div>
 <div class="warning bg-warning" *ngIf="eliminado!=null">
