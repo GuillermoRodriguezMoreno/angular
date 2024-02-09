@@ -3,11 +3,12 @@ import { NgFor, NgIf } from '@angular/common';
 
 import { Producto } from '../productos.module';
 import { ProductoService } from '../../services/productos.service';
+import { FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-listado',
   standalone: true,
-  imports: [NgFor, NgIf],
+  imports: [NgFor, NgIf, FormsModule],
   templateUrl: './listado.component.html',
   styleUrl: './listado.component.css'
 })
@@ -16,6 +17,8 @@ export class ListadoComponent {
 
   eliminado: Producto|null|undefined = null;
   encontrado: boolean=true;
+
+  datosFormulario:string="";
 
   constructor(private _productosServicios:ProductoService){
     this.productos = _productosServicios.getProductos();

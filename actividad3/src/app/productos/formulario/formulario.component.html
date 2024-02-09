@@ -1,19 +1,37 @@
-<form (ngSubmit)="onSubmit(form)" #form="ngForm">
+<div class="row bg-primary">
+  <div class="col text-center">FORMULARIO</div>
+</div>
+<form #form="ngForm">
   <div class="row">
     <div class="col-2">
-      <input type="text" #nombreProducto 
+      <input type="text" #nombreProducto="ngModel" 
         name="nombre"
         [(ngModel)]="datosFormulario.nombre"
-        placeholder="Nombre">
-      <input type="text" #precioProducto 
+        class="form-control"
+        placeholder="Nombre"
+        required>
+        <div *ngIf="nombreProducto.errors?.['required']">Nombre requerido</div>
+      <input type="number" #precioProducto="ngModel" 
         name="precio"
         [(ngModel)]="datosFormulario.precio"
-        placeholder="Precio">
-      <input type="text" #categoriaProducto 
+        class="form-control"
+        placeholder="Precio"
+        required
+        min="1">
+        <div *ngIf="precioProducto.errors?.['min']">Precio debe ser mayor a 0</div>
+        <div *ngIf="precioProducto.errors?.['required']">Precio requerido</div>
+      <input type="text" #categoriaProducto="ngModel"
         name="Categoria"
         [(ngModel)]="datosFormulario.categoria"
-        placeholder="Categoria">
-      <button (click)="onSubmit(form)" type="submit" id="" class="btn btn-primary">Enviar</button>
+        class="form-control"
+        placeholder="Categoria"
+        required>
+        <div *ngIf="categoriaProducto.errors?.['required']">Categoria requerida</div>
+      <button [disabled]="!form.valid" 
+        (click)="onSubmit(form)" type="submit" id=""
+         class="btn btn-primary">
+         Enviar
+        </button>
     </div>
   </div>
 </form>

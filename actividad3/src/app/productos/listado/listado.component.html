@@ -1,3 +1,6 @@
+<div class="row bg-primary">
+    <div class="col text-center">{{ productos.length }} PRODUCTOS</div>
+</div>
 <div class="row" *ngIf="productos.length == 0">
     <div class="col-12 bg-danger">
         No hay productos
@@ -26,12 +29,15 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-6">
-        <input class="" type="text" #nombreProducto>
-    </div>
-    <div class="col-6">
-        <button (click)="eliminar(nombreProducto.value)" type="button" name="eliminar[]" id="eliminar[]" class="btn btn-primary" btn-lg btn-block>Eliminar</button>
-    </div>
+    <form action="" class="col-6" #form="ngForm">
+            <input type="text" #nombreProducto="ngModel" name="nombre" 
+            [(ngModel)]="datosFormulario" class="form-control" 
+            placeholder="Nombre" required>
+            <div *ngIf="nombreProducto.errors?.['required']">Nombre requerido</div>
+            <button [disabled]="!form.valid"
+            (click)="eliminar(nombreProducto.value)" type="submit" 
+            name="buscar[]" id="buscar[]" class="btn btn-primary" btn-lg btn-block>Buscar</button>
+    </form>
 </div>
 <div class="warning bg-warning" *ngIf="eliminado!=null">
         Elemento eliminado: {{eliminado.nombre}}, {{eliminado.precio}}, {{eliminado.categoria}}
