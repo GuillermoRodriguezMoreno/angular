@@ -1,1 +1,46 @@
-<p>formulario-usuarios works!</p>
+<div class="row bg-primary">
+    <div class="col text-center">FORMULARIO</div>
+  </div>
+  <form #form="ngForm">
+    <div class="row">
+      <div class="col-4">
+        <input type="number" #idUsuario="ngModel" 
+          name="id"
+          [(ngModel)]="datosFormulario.id"
+          class="form-control"
+          placeholder="ID"
+          required
+          min="1">
+          <div *ngIf="idUsuario.errors?.['required']">ID requerido</div>
+          <div *ngIf="edadUsuario.errors?.['min']">ID debe ser mayor a 0</div>
+        <input type="text" #nombreUsuario="ngModel" 
+          name="nombre"
+          [(ngModel)]="datosFormulario.nombre"
+          class="form-control"
+          placeholder="Nombre"
+          required>
+          <div *ngIf="nombreUsuario.errors?.['required']">Nombre requerido</div>
+        <input type="number" #edadUsuario="ngModel" 
+          name="edad"
+          [(ngModel)]="datosFormulario.edad"
+          class="form-control"
+          placeholder="Edad"
+          required
+          min="18">
+          <div *ngIf="edadUsuario.errors?.['min']">Edad debe ser mayor a 17</div>
+          <div *ngIf="edadUsuario.errors?.['required']">Edad requerida</div>
+        <input type="text" #profesionUsuario="ngModel"
+          name="profesion"
+          [(ngModel)]="datosFormulario.profesion"
+          class="form-control"
+          placeholder="Profesion"
+          required>
+          <div *ngIf="profesionUsuario.errors?.['required']">Profesion requerida</div>
+        <button [disabled]="!form.valid" 
+          (click)="onSubmit(form)" type="submit" id=""
+           class="btn btn-primary">
+           Enviar
+          </button>
+      </div>
+    </div>
+  </form>

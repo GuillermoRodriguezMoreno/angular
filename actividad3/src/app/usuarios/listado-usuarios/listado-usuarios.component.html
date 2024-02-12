@@ -1,1 +1,49 @@
-<p>listado-usuarios works!</p>
+<div class="row bg-primary">
+    <div class="col text-center">{{ usuarios.length }} USUARIOS</div>
+</div>
+
+<div class="row" *ngIf="usuarios.length === 0">
+    <div class="col-12 bg-danger text-white">
+        No hay usuarios
+    </div>
+</div>
+
+<div class="row fila_productos">
+    <div class="col-3">ID</div>
+    <div class="col-3">USUARIO</div>
+    <div class="col-3">EDAD</div>
+    <div class="col-3">PROFESIÓN</div>
+</div>
+
+<div class="row" *ngFor="let item of usuarios">
+    <div class="col-3">{{ item.id }}</div>
+    <div class="col-3">{{ item.nombre }}</div>
+    <div class="col-3">{{ item.edad }}</div>
+    <div class="col-3">{{ item.profesion }}</div>
+</div>
+
+<div class="row">
+    <form class="col-6" #form="ngForm">
+        <div class="form-group">
+            <input type="text" #nombreUsuario="ngModel" name="nombre" 
+                [(ngModel)]="datosFormulario" class="form-control" 
+                placeholder="Nombre" required>
+            <div *ngIf="nombreUsuario.errors?.['required']" class="text-danger">
+                Nombre requerido
+            </div>
+        </div>
+        <button [disabled]="!form.valid" (click)="eliminar(nombreUsuario.value)" 
+            type="submit" class="btn btn-danger btn-lg btn-block">
+            Eliminar
+        </button>
+    </form>
+</div>
+
+<div class="warning bg-warning text-white" *ngIf="eliminado !== null">
+    Elemento eliminado: {{ eliminado?.nombre }}, {{ eliminado?.edad }}, {{ eliminado?.profesion }}
+</div>
+
+<div class="warning bg-warning text-white" *ngIf="encontrado === false">
+    Usuario no encontrado
+</div>
+
