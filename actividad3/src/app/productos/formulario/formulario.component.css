@@ -4,3 +4,11 @@ input.ng-invalid.ng-touched {
     border: 1px solid red;
     background-color: rgb(250, 228, 228);
   }
+
+  label{
+    font-weight: bold;
+  }
+
+  .rojo{
+    color: red;
+  }

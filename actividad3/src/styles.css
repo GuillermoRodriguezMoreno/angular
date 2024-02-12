@@ -3,7 +3,10 @@ body{
     background-color: lightcyan;
 } 
 .fila_productos div {
-    background-color: darkkhaki;
+    background-color: rgb(88, 104, 241);
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
 }
 .fila_productos {
     margin: 5px;

@@ -1,32 +1,35 @@
-<div class="row bg-primary">
+<div class="row bg-primary" style="margin-bottom: 40px;padding: 10px; color: white;">
   <div class="col text-center">FORMULARIO</div>
 </div>
 <form #form="ngForm">
   <div class="row">
     <div class="col-4">
+      <label for="nombre">Nombre:</label>
       <input type="text" #nombreProducto="ngModel" 
         name="nombre"
         [(ngModel)]="datosFormulario.nombre"
         class="form-control"
         placeholder="Nombre"
         required>
-        <div *ngIf="nombreProducto.errors?.['required']">Nombre requerido</div>
-      <input type="number" #precioProducto="ngModel" 
+        <div *ngIf="nombreProducto.errors?.['required']"class="rojo">Nombre requerido</div>
+        <label for="precio">Precio:</label>
+        <input type="number" #precioProducto="ngModel" 
         name="precio"
         [(ngModel)]="datosFormulario.precio"
         class="form-control"
         placeholder="Precio"
         required
         min="1">
-        <div *ngIf="precioProducto.errors?.['min']">Precio debe ser mayor a 0</div>
-        <div *ngIf="precioProducto.errors?.['required']">Precio requerido</div>
-      <input type="text" #categoriaProducto="ngModel"
+        <div *ngIf="precioProducto.errors?.['min']" class="rojo">Precio debe ser mayor a 0</div>
+        <div *ngIf="precioProducto.errors?.['required']"class="rojo">Precio requerido</div>
+        <label for="Categoria">Categoria:</label>
+        <input type="text" #categoriaProducto="ngModel"
         name="Categoria"
         [(ngModel)]="datosFormulario.categoria"
         class="form-control"
         placeholder="Categoria"
         required>
-        <div *ngIf="categoriaProducto.errors?.['required']">Categoria requerida</div>
+        <div *ngIf="categoriaProducto.errors?.['required']"class="rojo">Categoria requerida</div>
       <button [disabled]="!form.valid" 
         (click)="onSubmit(form)" type="submit" id=""
          class="btn btn-primary">

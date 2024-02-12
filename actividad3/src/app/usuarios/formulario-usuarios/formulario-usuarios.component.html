@@ -1,9 +1,10 @@
-<div class="row bg-primary">
+<div class="row bg-primary" style="margin-bottom: 40px;padding: 10px; color: white;">
     <div class="col text-center">FORMULARIO</div>
-  </div>
+</div>
   <form #form="ngForm">
     <div class="row">
       <div class="col-4">
+        <label for="id">ID:</label>
         <input type="number" #idUsuario="ngModel" 
           name="id"
           [(ngModel)]="datosFormulario.id"
@@ -11,31 +12,34 @@
           placeholder="ID"
           required
           min="1">
-          <div *ngIf="idUsuario.errors?.['required']">ID requerido</div>
-          <div *ngIf="edadUsuario.errors?.['min']">ID debe ser mayor a 0</div>
-        <input type="text" #nombreUsuario="ngModel" 
+          <div *ngIf="idUsuario.errors?.['required']"class="rojo">ID requerido</div>
+          <div *ngIf="edadUsuario.errors?.['min']"class="rojo">ID debe ser mayor a 0</div>
+          <label for="nombre">Nombre:</label>
+          <input type="text" #nombreUsuario="ngModel" 
           name="nombre"
           [(ngModel)]="datosFormulario.nombre"
           class="form-control"
           placeholder="Nombre"
           required>
-          <div *ngIf="nombreUsuario.errors?.['required']">Nombre requerido</div>
-        <input type="number" #edadUsuario="ngModel" 
+          <div *ngIf="nombreUsuario.errors?.['required']"class="rojo">Nombre requerido</div>
+          <label for="edad">Edad:</label>
+          <input type="number" #edadUsuario="ngModel" 
           name="edad"
           [(ngModel)]="datosFormulario.edad"
           class="form-control"
           placeholder="Edad"
           required
           min="18">
-          <div *ngIf="edadUsuario.errors?.['min']">Edad debe ser mayor a 17</div>
-          <div *ngIf="edadUsuario.errors?.['required']">Edad requerida</div>
-        <input type="text" #profesionUsuario="ngModel"
+          <div *ngIf="edadUsuario.errors?.['min']"class="rojo">Edad debe ser mayor a 17</div>
+          <div *ngIf="edadUsuario.errors?.['required']"class="rojo">Edad requerida</div>
+          <label for="profesion">Profesion</label>
+          <input type="text" #profesionUsuario="ngModel"
           name="profesion"
           [(ngModel)]="datosFormulario.profesion"
           class="form-control"
           placeholder="Profesion"
           required>
-          <div *ngIf="profesionUsuario.errors?.['required']">Profesion requerida</div>
+          <div *ngIf="profesionUsuario.errors?.['required']" class="rojo">Profesion requerida</div>
         <button [disabled]="!form.valid" 
           (click)="onSubmit(form)" type="submit" id=""
            class="btn btn-primary">
