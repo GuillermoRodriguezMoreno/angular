@@ -19,9 +19,11 @@ export class BotonesComponent implements OnInit {
   eventoReset:EventEmitter<boolean>=new EventEmitter<boolean>();
 
   //Variables propias del componente
-  desactivado:boolean=false;
+  desactivado:boolean;
 
-  constructor(){}
+  constructor(){
+    this.desactivado=false;
+  }
 
   ngOnInit(): void {
     this.eventoReset.subscribe((reset:boolean)=>{
