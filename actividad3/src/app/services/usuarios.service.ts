@@ -38,7 +38,6 @@ export class UsuariosService {
   }
 
   crear(datos:Usuario){
-
     this._usuarios.push({...datos});
     this.usuariosChanged.emit();
   }

@@ -16,13 +16,17 @@ export class BotonesComponent implements OnInit {
   @Output()
   pulsado:EventEmitter<Boton> =new EventEmitter<Boton>();
   @Input()
-  desactivado:boolean=false;
+  eventoReset:EventEmitter<boolean>=new EventEmitter<boolean>();
 
   //Variables propias del componente
+  desactivado:boolean=false;
 
   constructor(){}
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
+    this.eventoReset.subscribe((reset:boolean)=>{
+      this.desactivado=reset;
+    }); 
   }
 
   botonPulsado() {

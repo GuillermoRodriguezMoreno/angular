@@ -28,7 +28,6 @@ export class ListadoComponent {
   }
 
   eliminar(producto:string):void {
-
     this.eliminado=this._productosServicios.eliminar(producto);
     this.encontrado = (this.eliminado!=null);
 

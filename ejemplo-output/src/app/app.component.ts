@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input } from '@angular/core';
 import { CommonModule, NgFor } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { BotonesComponent } from './components/botones/botones.component';
@@ -27,6 +27,7 @@ export class AppComponent {
   botonesPulsados: Boton[] = [];
   sumaDeValores:number = 0;
   secuenciaDeBotones:string = "";
+  eventoReset:EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor() {
   }
@@ -35,12 +36,13 @@ export class AppComponent {
   botonPulsado(boton: Boton) {
     this.botonesPulsados.push(boton);
     this.sumaDeValores += boton.valor;
-    this.secuenciaDeBotones += boton.texto + " ";
+    this.secuenciaDeBotones = this.secuenciaDeBotones.concat(boton.texto, " ");
   }
 
   resetBotones(){
     this.botonesPulsados = [];
     this.sumaDeValores = 0;
     this.secuenciaDeBotones = "";
+    this.eventoReset.emit(false);
   }
 }

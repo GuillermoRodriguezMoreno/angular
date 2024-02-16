@@ -37,7 +37,6 @@ export class ProductoService {
   }
 
   crear(datos:Producto){
-
     this._productos.push({...datos});
     this.productosChanged.emit();
   }

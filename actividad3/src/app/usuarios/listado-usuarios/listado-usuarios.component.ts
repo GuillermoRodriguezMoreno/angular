@@ -27,7 +27,6 @@ export class ListadoUsuariosComponent {
   }
 
   eliminar(usuario:string):void{
-
     this.eliminado=this._usuariosService.eliminar(usuario);
     this.encontrado=this.eliminado!=null;
 
