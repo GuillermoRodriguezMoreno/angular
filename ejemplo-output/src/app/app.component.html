@@ -13,6 +13,7 @@
     </div>
     <div class="col-3">
       <button (click)="resetBotones()" 
+              *ngIf="botonesPulsados.length>0"
               type="button" 
               class="btn btn-primary">
               Reset</button>
