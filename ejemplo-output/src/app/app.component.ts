@@ -25,24 +25,26 @@ export class AppComponent {
     { id: 7, texto: 'Blanco', valor: 1 },
   ];
   botonesPulsados: Boton[] = [];
-  sumaDeValores:number = 0;
-  secuenciaDeBotones:string = "";
   eventoReset:EventEmitter<boolean> = new EventEmitter<boolean>();
 
   constructor() {
   }
 
   //Métodos de instancia
+  textoPulsado():string{
+    return this.botonesPulsados.map((b) => {return b.texto}).join(", ");
+  }
+
+  sumaValores():number{
+    return this.botonesPulsados.map((b) => {return b.valor}).reduce((a,b) => a+b,0);
+  }
+
   botonPulsado(boton: Boton) {
     this.botonesPulsados.push(boton);
-    this.sumaDeValores += boton.valor;
-    this.secuenciaDeBotones = this.secuenciaDeBotones.concat(boton.texto, " ");
   }
 
   resetBotones(){
     this.botonesPulsados = [];
-    this.sumaDeValores = 0;
-    this.secuenciaDeBotones = "";
     this.eventoReset.emit(false);
   }
 }

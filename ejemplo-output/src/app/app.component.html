@@ -6,8 +6,8 @@
           <p *ngIf="botonesPulsados.length<1">No se ha pulsado ningún botón</p>
         </div>
         <div class="col" *ngIf="botonesPulsados.length>0">
-          <div>Secuencia de botones pulsados: [ {{ secuenciaDeBotones }} ]</div>
-          <div>Suma de valores: {{ sumaDeValores }}</div>
+          <div>Secuencia de botones pulsados: [ {{ textoPulsado() }} ]</div>
+          <div>Suma de valores: {{ sumaValores() }}</div>
         </div>
       </div>
     </div>
